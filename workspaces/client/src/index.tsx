@@ -11,7 +11,7 @@ import { ClientApp } from '@wsh-2024/app/src/index';
 import { registerServiceWorker } from './utils/registerServiceWorker';
 
 const main = async () => {
-  registerServiceWorker();
+  await registerServiceWorker();
   // await preloadImages();
 
   $(document).ready(() => {
