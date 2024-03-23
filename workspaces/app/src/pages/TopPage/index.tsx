@@ -75,7 +75,28 @@ export const TopPage: React.FC = () => {
           <Spacer height={Space * 2} />
           <Box maxWidth="100%" overflowX="hidden" overflowY="hidden">
             <Flex align="center" as="ul" direction="column" justify="center">
-              {rankingList?.map((ranking) => <RankingCard key={ranking.id} bookId={ranking.book.id} />)}
+              {rankingList?.map((ranking) => (
+                <RankingCard
+                  key={ranking.id}
+                  authorImageUrl={getImageUrl({
+                    format: 'jpg',
+                    height: 32 * window.devicePixelRatio,
+                    imageId: ranking.book.author.image.id,
+                    width: 32 * window.devicePixelRatio,
+                  })}
+                  authorName={ranking.book.author.name}
+                  bookId={ranking.book.id}
+                  description={ranking.book.description}
+                  imageAlt={ranking.book.image.alt}
+                  imageUrl={getImageUrl({
+                    format: 'jpg',
+                    height: 96 * window.devicePixelRatio,
+                    imageId: ranking.book.image.id,
+                    width: 96 * window.devicePixelRatio,
+                  })}
+                  name={ranking.book.name}
+                />
+              ))}
             </Flex>
           </Box>
         </Box>
