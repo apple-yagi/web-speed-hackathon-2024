@@ -25,12 +25,6 @@ const _Content = styled.section`
 `;
 
 export const Footer: React.FC = () => {
-  const [isClient, setIsClient] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const termDialogA11yId = useId();
   const contactDialogA11yId = useId();
   const questionDialogA11yId = useId();
@@ -114,21 +108,12 @@ export const Footer: React.FC = () => {
       <Flex align="flex-start" direction="column" gap={Space * 1} justify="flex-start">
         <img alt="Cyber TOON" src="/assets/cyber-toon.svg" />
         <Flex align="start" direction="row" gap={Space * 1.5} justify="center">
-          <_Button disabled={!isClient} onClick={handleRequestToTermDialogOpen}>
-            利用規約
-          </_Button>
-          <_Button disabled={!isClient} onClick={handleRequestToContactDialogOpen}>
-            お問い合わせ
-          </_Button>
-          <_Button disabled={!isClient} onClick={handleRequestToQuestionDialogOpen}>
-            Q&A
-          </_Button>
-          <_Button disabled={!isClient} onClick={handleRequestToCompanyDialogOpen}>
-            運営会社
-          </_Button>
-          <_Button disabled={!isClient} onClick={handleRequestToOverviewDialogOpen}>
-            Cyber TOONとは
-          </_Button>
+          <_Button onClick={handleRequestToTermDialogOpen}>利用規約</_Button>
+          <dialog></dialog>
+          <_Button onClick={handleRequestToContactDialogOpen}>お問い合わせ</_Button>
+          <_Button onClick={handleRequestToQuestionDialogOpen}>Q&A</_Button>
+          <_Button onClick={handleRequestToCompanyDialogOpen}>運営会社</_Button>
+          <_Button onClick={handleRequestToOverviewDialogOpen}>Cyber TOONとは</_Button>
         </Flex>
       </Flex>
     </Box>
