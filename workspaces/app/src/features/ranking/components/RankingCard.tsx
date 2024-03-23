@@ -47,7 +47,7 @@ type Props = {
 export const RankingCard: React.FC<Props> = (props) => {
   return (
     <_Wrapper>
-      <_Link href={`/books/${props.bookId}`}>
+      <_Link to={`/books/${props.bookId}`}>
         <Spacer height={Space * 1.5} />
         <Flex align="flex-start" gap={Space * 2.5} justify="flex-start">
           {props.imageUrl != null && (

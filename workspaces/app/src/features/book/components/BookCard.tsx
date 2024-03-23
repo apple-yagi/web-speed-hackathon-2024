@@ -41,7 +41,7 @@ type Props = {
 
 export const BookCard: React.FC<Props> = (props) => {
   return (
-    <_Wrapper href={`/books/${props.bookId}`}>
+    <_Wrapper to={`/books/${props.bookId}`}>
       {props.imageUrl != null && (
         <_ImgWrapper>
           <Image alt={props.imageAlt} height={128} objectFit="cover" src={props.imageUrl} width={192} />

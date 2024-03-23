@@ -1,6 +1,9 @@
 {
   "name": "@wsh-2024/app",
   "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
   "dependencies": {
     "@mui/icons-material": "5.15.4",
     "@mui/material": "5.15.4",
