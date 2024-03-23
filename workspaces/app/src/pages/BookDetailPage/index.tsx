@@ -106,10 +106,10 @@ const BookDetailPage: React.FC = () => {
 
       <section aria-label="エピソード一覧">
         <Flex align="center" as="ul" direction="column" justify="center">
-          {episodeList.map((episode) => (
-            <EpisodeListItem key={episode.id} bookId={bookId} episodeId={episode.id} />
+          {episodeList?.map((episode) => (
+            <EpisodeListItem key={episode.id} bookId={bookId} episode={episode} episodeId={episode.id} />
           ))}
-          {episodeList.length === 0 && (
+          {episodeList?.length === 0 && (
             <>
               <Spacer height={Space * 2} />
               <Text color={Color.MONO_100} typography={Typography.NORMAL14}>
