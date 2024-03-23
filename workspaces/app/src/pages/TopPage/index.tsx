@@ -13,6 +13,7 @@ import { Spacer } from '../../foundation/components/Spacer';
 import { Text } from '../../foundation/components/Text';
 import { Color, Space, Typography } from '../../foundation/styles/variables';
 import { getDayOfWeekStr } from '../../lib/date/getDayOfWeekStr';
+import { getImageUrl } from '../../lib/image/getImageUrl';
 
 import { CoverSection } from './internal/CoverSection';
 
@@ -39,7 +40,28 @@ export const TopPage: React.FC = () => {
           <Spacer height={Space * 2} />
           <Box maxWidth="100%" overflowX="scroll" overflowY="hidden">
             <Flex align="stretch" direction="row" gap={Space * 2} justify="flex-start">
-              {featureList?.map((feature) => <FeatureCard key={feature.id} bookId={feature.book.id} />)}
+              {featureList?.map((feature) => (
+                <FeatureCard
+                  key={feature.id}
+                  authorImageUrl={getImageUrl({
+                    format: 'jpg',
+                    height: 32 * window.devicePixelRatio,
+                    imageId: feature.book.author.image.id,
+                    width: 32 * window.devicePixelRatio,
+                  })}
+                  authorName={feature.book.author.name}
+                  bookId={feature.book.id}
+                  description={feature.book.description}
+                  imageAlt={feature.book.image.alt}
+                  imageUrl={getImageUrl({
+                    format: 'jpg',
+                    height: 96 * window.devicePixelRatio,
+                    imageId: feature.book.image.id,
+                    width: 96 * window.devicePixelRatio,
+                  })}
+                  name={feature.book.name}
+                />
+              ))}
             </Flex>
           </Box>
         </Box>
