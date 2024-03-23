@@ -11,7 +11,7 @@ import { ClientApp } from '@wsh-2024/app/src/index';
 import { registerServiceWorker } from './utils/registerServiceWorker';
 
 const main = async () => {
-  await registerServiceWorker();
+  registerServiceWorker();
   // await preloadImages();
 
   $(document).ready(() => {
@@ -20,7 +20,13 @@ const main = async () => {
     } else {
       ReactDOM.hydrateRoot(
         $('#root').get(0)!,
-        <SWRConfig value={{ revalidateIfStale: true, revalidateOnFocus: false, revalidateOnReconnect: false }}>
+        <SWRConfig
+          value={{
+            revalidateIfStale: true,
+            revalidateOnFocus: false,
+            revalidateOnReconnect: false,
+          }}
+        >
           <BrowserRouter>
             <ClientApp />
           </BrowserRouter>
