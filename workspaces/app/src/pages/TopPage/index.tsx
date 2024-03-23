@@ -110,7 +110,28 @@ export const TopPage: React.FC = () => {
           <Spacer height={Space * 2} />
           <Box maxWidth="100%" overflowX="scroll" overflowY="hidden">
             <Flex align="stretch" gap={Space * 2} justify="flex-start">
-              {release?.books.map((book) => <BookCard key={book.id} bookId={book.id} />)}
+              {release?.books.map((book) => (
+                <BookCard
+                  key={book.id}
+                  authorImageUrl={getImageUrl({
+                    format: 'jpg',
+                    height: 32 * window.devicePixelRatio,
+                    imageId: book.author.image.id,
+                    width: 32 * window.devicePixelRatio,
+                  })}
+                  authorName={book.author.name}
+                  bookId={book.id}
+                  description={book.description}
+                  imageAlt={book.image.alt}
+                  imageUrl={getImageUrl({
+                    format: 'jpg',
+                    height: 128 * window.devicePixelRatio,
+                    imageId: book.image.id,
+                    width: 192 * window.devicePixelRatio,
+                  })}
+                  name={book.name}
+                />
+              ))}
             </Flex>
           </Box>
         </Box>
